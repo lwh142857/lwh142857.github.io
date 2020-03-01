@@ -37,8 +37,11 @@
 },1000)
     var time2 = setInterval(function(){
     var time = new Date()
-    timedis.value = parseInt((time.getTime() - begintime)/10)/100
-},10)
+    var num = (time.getTime() - begintime)/1000
+    var numStr = num.toString()
+    timedis.value = numStr.slice(0,4)
+ //   timedis.value = parseInt((time.getTime() - begintime)/10)/100
+},1)
     flag = 1
 
     btn_end.onclick = function(){
@@ -46,7 +49,10 @@
     clearInterval(time2)
 
     var time = new Date()
-    var timespend = parseInt((time.getTime() - begintime)/10)/100
+    var num = (time.getTime() - begintime)/1000
+    var numStr = num.toString()
+    var timespend = numStr.slice(0,4)
+    // var timespend = parseInt((time.getTime() - begintime)/10)/100
     if(flag == 1){
         timedis.value = timespend
         flag = 0
