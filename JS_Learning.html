@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,inital-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+<style>
+*{
+    margin:1px;
+    padding: 1px;
+}
+    span{
+        display: inline-block;
+        text-align: center;
+        padding-left: 0px;
+        line-height: 20px;
+        width: 80px;
+        border: 1px solid pink;
+    }
+
+
+    </style>
+</head>
+<body>
+<div id = 'timebox'></div>
+<button id = 'btn'>change the color</button>
+<script src="utils.js"></script>
+<h1>
+    ECMScript
+    BOM
+    DOM
+</h1>
+
+<p>
+
+
+</p>
+
+<input id="first" type="text"> + <input id="second" type = 'text '> 
+<button id="but">=</button> <input id="third" type = 'text '>
+<form action="" id = "inp">
+    <input type="text" name="name">
+    <button>提交1</button>              
+     <!-- 在form中的button标签 相当于input tpye = submit  -->
+</form>
+
+<script>
+
+console.log(first)
+console.log(second)
+console.log(but)
+but.onclick = function(){ 
+    var numfirst = first.value - 0
+    var numsecond = second.value - 0
+
+    
+    third.value = numfirst + numsecond}
+
+document.write('<br>'+'<span>'+222222+'</span>')
+
+
+var arr = [1,13,12,3,68,5,2,55,6,9,4,44]
+// for(var i = 0;i < arr.length - 1; i++){
+//     for(var j = 0; j < arr.length - 1 - i; j++){
+//         if(arr[j]>arr[j+1]){
+//             var temp = arr[j]
+//             arr[j] = arr[j + 1]
+//             arr[j + 1] = temp
+//         }
+//     }
+// }
+
+for (var i = 0; i < arr.length ; i++){
+    var minindex = i
+ for (var j = 1 + i; j < arr.length ; j++){
+     if(arr[j]<arr[minindex]){
+         minindex = j
+     }
+   
+ } 
+    if(minindex!== i){
+        var temp = arr[i]
+        arr[i] = arr[minindex]
+        arr[minindex] = temp
+    }
+    
+}
+console.log(arr)
+
+    btn.onclick = function(){
+        var r = fn(0,255)
+        var g = fn(0,255)
+        var b = fn(0,255)
+        var str = 'rgb(' + r + ',' + g + ',' + b + ')'
+    document.body.style.backgroundColor = str
+    }
+
+
+
+setInterval(function(){
+    var time = new Date()
+    timebox.innerText = time
+},1000)
+
+// alert()          弹出框
+// console.log()    控制台输出
+// \r   
+// \n 换行    
+// \t 制表符 2-8 个空格 一个字符的位置
+// 判断数据类型 tpyeoff  返回值为字符串类型                                  console.log(typeof n1)
+/*三种写入方式
++ 行内式
+    + 写在a标签上 'herf = "javascript: js代码;"'
+    + 写在非a标签上 '<div onclick = "js 代码"><div>'
++ 内嵌式
+    + 写在script标签里，最好在 head 的末尾 或 body 的末尾
++ 外链式
+    + js 代码写在 .js文件中
+    + 用 script 的 src 属性引入
+
+*/
+/*变量
++ 声明 var
++ 命名规则
+    + 只能使用 **数字 字母 下划线 美元符**
+    + 不能以数字开头 严格区分大小写 不能使用关键字和保留字 不能使用空格
++ 命名规范  
+    + 变量名定义尽量有意义
+    + 驼峰命名 不能使用中文
+*/
+/*数据类型
++ 基本数据类型
+    + 数值 number       NaN
+    + 字符串 string     "" ''/包装数据类型 使用时可以转换为复杂数据类型，可以使用索引获取，但不能使用数组方法
+        字面量创建           var str = ''
+        内置构造函数创建      var str = new String('')
+
+    + 布尔 boolean      true false
+    + 空 undefined      变量值未声明
+    + 空 null           手动赋值为null
++ 复杂数据类型
+    + 变量存储的是地址
++ 检查数据类型
+    + typeof() 返回值的数据类型为字符串
+*/
+/*数据类型转换 
++ 转换为数值
+    + Number(s1)    当做整体看待  无法转换则为NaN
+    + parseInt()    当做文本看待  依顺序转换 无法转换则停止 只能解析整数        
+    + parseFloat()  当做文本看待  依顺序转换 无法转换则停止 可以解析小数
+    + 进行一个非 + 得运算 '- * / % '                                          console.log(n1-0)
++ 转换为字符串
+    + String()      变量在后
+    + toString()    变量在前，可以把数字转换进制输出                          r1 = n1.toString(2) 转为2进制
+    + 进行 + 运算    字符串拼接
++ 转换为布尔
+    +Boolean()      只有5个能转成false    0 NaN undefined null ''   其他都是true
++ 检查不是数字
+    +isNaN()
+*/
+/*运算符
++ 数学运算符   + - * / %  若不能得到正常结果则输出 NaN
++ 赋值运算符   
+    + =
+    + +=
+    + -=
+    + *=
+    + /=
+    + %=
++ 比较运算符   
+    + ==  只比较数据的值 不比较类型
+    + === 比较数据类型以及值
+    + !=  只比较数据的值 不比较类型
+    + !== 比较数据类型以及值
+    + < >
+    + <= >=
++ 逻辑运算符
+    + && 与
+    + || 或
+    + ！ 非  双!!可以将数据转为布尔类型
+    + && 优先级高于 ||
++ 自增减运算符
+    + ++ 自增
+        + 前置++   先+后运算
+        + 后置++   先运算后+
+    + -- 自减
+        + 前置--   先-后运算
+        + 后置--   先运算后-
+*/
+/*交换变量
+
+*/
+/*和页面结合
++ 获取文本框  在 js 里 元素id可以直接代表这个元素
++ 什么时候获取值 button点击
++ 什么时候点击  按钮注册一个点击事件 onclick = function(){执行事件}
+*/
+
+/*条件分支语句
++ if 语句
+    + if(条件){ 执行事件 }
+    + if(条件){ 成立时执行 } else { 不成立时执行 }
+    + if(条件1){ 成立时执行 } else if(条件2) { 条件2成立时执行 } else {都不成立时执行}
++ switch 语句
+    + switch(条件){
+        case 情况1：代码 break
+        case 情况2：代码 break
+        default ：代码
+    }
+
+prompt('提示文字')  方法 弹出一个输入框 当点击确定或取消时 代码才会向下执行
+document.write()    页面输出文字
+<br>                换行标签
+&nbsp;              空格
+<span>              标签
+*/
+/*循环语句
++ while
+    + while(条件) {代码}
++ do while
+    + 先执行1次 在判断条件
++ for
+    + break
+    + continue
++ forin 用来遍历对象/数组
+    + for(var attr in obj){} attr 为obj中的成员名称，attr不是变量；有多少成员执行几次
+    + obj[attr]
+    + 
+
+*/
+/*数组
++ 直接定义 var arr = [] 
++ 内置构造函数 Array 
+    var arr = new Array(num)  num为长度
+    var arr = new Array(1,2,3)  数组中数据
++ 基本使用
+    arr.length 数组长度
+    push() 添加数据到最后，直接改变原数组   arr.push()  返回值为添加后的数组长度
+    pop() 删除最后一个数据，直接改变原数组 arr.pop() 返回值为被删除的数据
+    unshift() 添加数据到最前面，直接改变原数组  arr.unshift() 返回值为添加后的数组长度
+    shift() 删除第一个数据，直接改变原数组  arr.shift() 返回值为被删除的数据
+    concat() 数组拼接，不改变原数组   arr.concat([1],[2]) 返回值为拼接后数组
+    splice() 数组截取，直接改变原数组  arr.splice(开始的索引，截取个数，替换内容) 返回值为数组形式的截取内容
+    reverse() 数组翻转，直接改变原数组  arr.reverse()  返回值为改变后数组
+    sort() 数组排序，直接改变原数组  arr.sort()  返回值为改变后数组     排序方式为按位排序
+        arr.sort(function(a,b){return a - b})   升序排列
+        arr.sort(function(a,b){return b - a})   降序排列
+    join() 数组链接成字符串，不改变原数组  arr,join('连接符')  返回值为改变后数组，且为字符串格式
+    slice() 截取数组，不改变原数组 arr.slice(开始的索引，结束的索引) 包前不包后 返回值为数组形式的截取内容
+        arr.slice(1,-1) 把负数和length相加的结果作为结束索引
+
+*/
+/*
+冒泡排序
+
+for(var i = 0;i < arr.length - 1; i++){
+    for(var j = 0; j< arr.length - 1 - i; j++){
+        if(arr[j]>arr[j+1]){
+            var temp = arr[j]
+            arr[j] = arr[j + 1]
+            arr[j + 1] = temp
+        }
+    }
+}
+
+选择排序
+for (var i = 0; i < arr.length ; i++){
+    var minindex = i
+ for (var j = 1 + i; j < arr.length ; j++){
+     if(arr[j]<arr[minindex]){
+         minindex = j
+     }
+   
+ } 
+    if(minindex!== i){
+        var temp = arr[i]
+        arr[i] = arr[minindex]
+        arr[minindex] = temp
+    }
+    
+}
+*/
+/*三元运算/三目
+简写 if else 语句
++ ？
++ ：
+条件 ？ 成立时执行 ：不成立执行
+
+
+*/
+
+/*函数
++ function fn() {}              声明式函数 可以在声明前调用
++ var fun = function() {}       赋值式函数 不能先调用
++ arguments                     函数所以传递实参的集合，伪数组
++ this                          在作用域里使用的关键字，一般在函数内部使用
+    this 在全局就是window
+    this 和函数的定义没有关系 只与调用有关
+    全局调用 fn()       this 就是window
+    方法调用 obj.fn()   this 就是对象
++ 严格模式                       开发过程代码要求
+    开启严格模式 在作用域开始写 'use strict'
+    变量必须写 var
+    函数形参不能重名
+    全局函数没有 this
+*/
+/*
+数组常用方法 in ES5
+    indexOf() 查看数组中是否有某内容，不改变数组，返回值为数据索引(只找到第一个);没找到返回-1
+        arr.indexOf(查找内容，开始查找位置)
+    forEach() 遍历数组
+        arr.forEach(function(item,index,arr){}) 数组有几项执行几次,参数分别传递 项，索引，原数组；无返回值
+    map() 映射数组
+        arr.map(function(item,index,arr){}) 同上;返回值为一个新的数组
+    filter() 筛选数组，将符合条件的数据筛选出，组成新数组，通过条件判断是否返回
+        arr.filter(function(item,index,arr){return item > 2})
+    some() 遍历数组，只要有一项满足条件则返回true 反之 为false
+        arr.some(function(item,index,arr){})
+    every() 遍历数组，每一项满足条件则返回true 只要有一个不满足返回false
+        arr.every(function(item,index,arr){})
+
+
+字符串常用方法 in ES5
+    charAt() 按照索引查找字符串中的内容，返回对应索引的字符串，没有则为空
+        str.charAt(索引)
+    charCodeAt() 按照索引查找字符串中的内容，返回对应索引的字符串的ASCII，没有则为空
+        str.charCodeAt(索引)
+    substring() 截取字符串 不改变数组，包前不包后
+        str.substring(开始索引，结束索引)
+    substr() 截取字符串
+        str.substr(开始索引，个数)
+    concat() 拼接字符串 
+        str.concat('')
+    slice() 截取字符串 包前不包后
+        str.slice(开始索引，结束索引)
+    toLowCase() 字符串转小写 不改变原字符串 
+        str.toLowCase()
+    toUpperCase() 字符串转大写 不改变原字符串 
+        str.toUpperCase()
+    split() 切割字符串 
+        str.split(用什么切割)
+    replace() 替换字符串内容
+        str.replace(被替换内容，替换内容)
+    indexOf() 查找字符所在位置索引 返回值为开始位置索引，未找到则为-1
+        str.indexOf()
+
+翻转字符串
+    split()将字符串切开成数组+reverse()翻转数组+join()拼接成字符串
+        res = str.split('').reverse().join('')
+
+数组去重复
+    方法1
+    var arr,newarr
+    for (var i = 0; i < arr.length; i++){
+        if(newarr.indexOf(arr[i]) === -1){
+            newarr.push(arr[i])
+        }
+    }
+
+    方法2
+    arr.sort(function(a , b){return a - b})
+    for (var i = 0; i < arr.length; i++){
+        if(arr[i] === arr[i + 1]){
+            arr.splice(i--,1)
+
+        }
+    }
+*/
+/*
+操作数字   对象Math
+    Math.random() 随机数 输出0-0.999999~的数字
+    Math.round(数字) 四舍五入取整
+    Math.ceil(数字) 向上取整
+    Math.floor(数字) 向下取整
+    Math.pow(数字，幂) 取幂
+    Math.sqrt(数字) 开平方
+    Math.abs(数字) 向绝对值
+    Math.max(数字，数字，···) 向最大值
+    Math.min(数字，数字，···) 向最小值
+    Math.PI     π
+
+转换进制
+    toString() 把10进制转换成其他进制，返回值为字符串
+    parseInt(数字，该数字进制数) 把其他进制数转换为10进制 
+    toFixed(保留小数位数) 数字保留几位小数，返回值为字符串
+
+范围内随机数
+    fn function(a,b){
+        var min = Math(a,b)
+        var max = Math(a,b)
+
+    var res = Math.floor(Math.random()*(max - min + 1 ) + min)
+    return res
+    }
+
+页面随机颜色
+    获取body => document.body
+    document.style.backgroundColor = 'red'/'rgb(r,g,b)'
+    btn.onclick = function(){
+        var r = fn(0,255)
+        var g = fn(0,255)
+        var b = fn(0,255)
+        var str = 'rgb(' + r + ',' + g + ',' + b + ')'
+    document.style.backgroundColor = str
+    }
+
+定时器
+    setInterval(函数，时间：单位是ms)
+
+操作时间
+    内置构造函数 Date()
+        var time = new Date(年,月(从0-11),日(1-31),小时(0-23),分钟(0-59),秒(0-59))
+        var time = new Date('年-月-日 小时:分钟:秒' / '年/月/日')
+    专用方法
+        getFullYear() 获取年份  number类型
+            obj.getFullYear() 
+        getMonth() 获取月 0-11
+            obj.getMonth() 
+        getDate() 获取日期
+            obj.getDate()
+        getHours() 获取小时
+            obj.getHours()
+        getMinutes() 获取分钟
+            obj.getMinutes()
+        getSeconds() 获取秒
+            obj.getSeconds()
+        getDay() 获取星期几 0-周日 6-周六
+            obj.getDay()
+        getTime() 获取时间戳 , 格林威治时间 1970-1-1 00:00:00 ,返回值为到格林威治时间的ms数
+            obj.getTime()
+        
+        setFullYerar() 设置年份
+        setMonth() 设置月
+        setDate() 设置日
+        setHours() 设置小时
+        setMinutes() 设置分钟
+        setSeconds() 设置秒
+        setDay() 设置星期
+        setTime() 设置时间戳
+    
+    时间转中文
+
+    innerText 在标签中写入内容，替换式
+
+
+        
+*/
+/*事件
++ 鼠标事件 元素.on
+    + click 单击
+    + dblclick  双击
+    + mouseover 鼠标移入
+    + mouseout  鼠标移出
+    + mouseenter鼠标移入
+    + mouseleave鼠标移出
+    + mousemove 鼠标移动
+    + mousedown 鼠标按下
+    + mouseup   鼠标抬起
+
++ 键盘事件
+    + 绑定给页面中能选择到的元素
+    + or 绑定给页面
+    + keydown   键盘按下
+    + keyup     键盘抬起
+    + keypress  键盘按下抬起
+
++ 表单事件 
+    + blur      失去焦点
+    + focus     获取焦点
+    + change    文本框内容改变
+    + input     文本框内容改变
+    + submit    表单提交(专门个form标签用)
+
++ 浏览器事件 window.
+    + onload    所以资源加载完毕
+    + onresize  屏幕大小改变时
+    + onscroll  滚动条滚动时
+
++ 其他事件
+    + transitionend 过渡结束时候
+    + animationend  动画结束时候
+    + https://www.mm820.com/book/1050/
+*/
+/*
+变量赋值时，如果上级都没有这个变量，直到全局；则会将这个变量定义为全局变量
+*/
+
+/*
+对象
++ 以键值对的形式 存储数据 无序的存储空间
++ 表示方式 {} var obj = {   
+    name:'jack',
+    a : [],
+    f : function(){},
++ 操作 
+    + 创建 var obj = {}
+    + 添加  成员    使用点语法，只能操作对象  
+    obj.name = 'jack'
+    + 删除  一个对象的成员 
+    delete obj.name
+    + 修改  一个对象的成员    使用点语法
+    obj.age = 18  如果没有改成员则为添加，有则修改 
+    + 访问  一个对象的成员    使用点语法
+    obj.age
+    + 数组关联语法     
+    obj['age'] = 18
+    delete obj['age']
+    obj['age'] = 20
+    obj['age']
++ 数据存储形式
+    + 栈内存    有顺序关系
+    + 堆内存    无顺序关系
+    基本数据类型 存储在栈内存
+    复杂数据类型 数据在堆内存 地址在栈内存
+}
+*/
+/*
+BOM (browser object model)  浏览器对象模型
+    操作浏览器的api
+    bom 顶级对象是 window
+    弹出层
+    滚动条
+    地址栏
+    历史记录
+    浏览器版本信息
+
+1. 获取浏览器窗口尺寸 包含滚动条
+    window.innerHeight 高
+    window.innerWidth  宽
+2. 浏览器的弹出层 (没有关闭弹出层则不会执行后面代码) 只能输出字符串，其他类型会自动转换为字符串
+    alert('')/window.alert('')  弹出提示框，只有确定 无返回值
+    confrim()/window.confrim('')  弹出询问框，有确定和取消 有返回值
+    prompt()/window.prompt()  弹出输入框，点确定，返回值为输入内容；取消则为空字符串
+3. 浏览器的地址栏
+    location 地址栏相关信息
+        herf 属性 获取当前页面的地址/赋值则会跳转页面
+        reload 方法 重新加载页面
+4. 操作页面
+    window.open('地址') 打开新页面
+    window.close() 关闭页面
+5. 历史记录
+    history 属性 
+        history.back 回退
+        history.forward 前进
+        history.go(正数前进/负数后退)
+6. 浏览器信息
+    navigater 对象
+        .userAgent 只读属性，版本信息
+        .appName 只读属性，名
+        .appVersion 只读属性，浏览器版本
+        .platfrom 操作系统
+
+*/
+/*浏览器卷取高度
+document.documentElement 表示html
+document.body 表示body
+    scrollTop   
+        var top = document.documentElement.scrollTop||document.body.scrollTop
+
+*/
+/*定时器 返回值为页面中的定时器编号，this=>window
+    setTimeout(function(){},时间)
+    setInterval(function(){},时间)
+    延时定时器、炸弹定时器 执行一次         
+        setTimeout(function(){},时间)        
+    间隔定时器 每隔一段时间执行一次
+        setInterval(function(){},时间)
+关闭定时器，可以混用
+    clearTimeout(编号)
+    clearInterval(编号)
+*/
+/*
+DOM document object model 文档对象模型
+    顶级对象为 document，操作文档的标签
+    1.获取标签
+    2.添加标签
+    3.修改标签属性(id,class,value,test,html)
+    4.替换标签
+    5.动效(选项卡、轮播图、倒计时)
+    6.表单提交
+获取页面元素
+    document.documentElement 获取html标签
+    document.head 获取head标签
+    document.body 获取body标签
+    getElementById() 通过id属性获取元素 单一元素
+    getElementsByClassName() 通过class获取元素 可多个元素  返回值为伪数组，包含所有元素
+    getElementsByTagName() 通过标签名获取元素 可多个元素  返回值为伪数组，包含所有元素
+    getElementsByName() 通过name属性获取元素 可多个元素  返回值为伪数组，包含所有元素
+    querySelector() 按照书写css方式获取 单一元素
+    querySelectorAll() 按照书写css方式获取 可多个元素  返回值为伪数组，包含所有元素
+操作元素属性
+    .innerHTML 读：获取元素内部所有html结构 写：覆盖式全部替换新的html结构
+    .innerText 读：获取元素内部所有文本内容 写：覆盖式全部替换为文本内容
+    .style 读：获取元素所有行内样式 写：增删改查style成员内容
+    .className 读：读取元素类名 写：覆盖式替换类名
+    .getAttribute(属性名) 获取元素所有属性
+    .setAttribute(属性名，设置属性值) 给元素设置属性
+    .removeAttribute(属性名) 删除元素属性
+
+DOM树
+    由各种节点构成(元素节点/属性节点/文本节点/注释节点)
+    获取节点
+        .getElement**()获取元素节点
+        .getAttribute() 获取属性节点
+        .innerText() 获取文本节点
+        .chlidNodes 获取元素所有子节点
+        .chlidren 获取元素一级子节点
+        .firstChlidren 获取元素第一个子节点
+        .firstElementChlidren 获取元素的第一个元素子节点
+        .lastChlidren 获取元素最后一个子节点
+        .lastElementChlidren 获取元素的最后一个元素子节点
+        .previousSibling 获取元素上一个兄弟节点
+        .previousElementSibling 获取元素上一个兄弟元素节点
+        .nextSibling 获取元素下一个兄弟节点
+        .nextElementSibling 获取元素下一个兄弟元素节点
+        .parenetNode 获取元素父节点
+        .attributes 获取元素所有属性节点
+
+        .nodeType 节点属性值
+        .nodeName 节点名(元素节点为大写标签名)
+        .nodeValue 节点值(元素节点没有值)
+
+*/
+</script>
+
+
+
+
+
+
+</body>
+</html>
+

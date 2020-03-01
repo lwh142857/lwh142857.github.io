@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<link href="666.css" rel="stylesheet" type="text/css">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,inital-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>挑战666</title>
+
+</head>
+
+<body>
+ <script src="utils.js"></script>
+
+<div class="container">
+    <h1>挑战666</h1>    
+    <div class="divider"></div>
+    <h2>你的成绩</h2>
+    <input id = "timedis" type="number" name="timedis" value="0"/>
+    <input id = 'btn_begin' type = 'button' value="开始计时"/>
+    <input id = 'btn_end' type = 'button' value="结束计时"/>
+
+</div>
+
+    <script>
+    var flag = 0
+    btn_begin.onclick = function(){
+    if(flag == 0){ 
+    var time = new Date()
+    var begintime = time.getTime() - 0
+    var time1 = setInterval(function(){
+        var r = fn(0,255)
+        var g = fn(0,255)
+        var b = fn(0,255)
+        var str = 'rgb(' + r + ',' + g + ',' + b + ')'
+    document.body.style.backgroundColor = str    
+},1000)
+    var time2 = setInterval(function(){
+    var time = new Date()
+    timedis.value = parseInt((time.getTime() - begintime)/10)/100
+},10)
+    flag = 1
+
+    btn_end.onclick = function(){
+    clearInterval(time1)
+    clearInterval(time2)
+
+    var time = new Date()
+    var timespend = parseInt((time.getTime() - begintime)/10)/100
+    if(flag == 1){
+        timedis.value = timespend
+        flag = 0
+
+    if(timespend === 6.66){
+        alert('You Win')  
+        console.log('you win')  
+    }
+    else if(timespend>5)
+        console.log('666')
+    } 
+    }   
+    }
+   
+}
+    window.onload = function(){
+    alert('游戏规则：挑战准确计时6.66秒 完美命中有惊喜哟')
+    }
+
+
+    </script>
+</body>
+</html>
