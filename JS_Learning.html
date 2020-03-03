@@ -633,8 +633,19 @@ DOM树
     克隆节点
         .cloneNode(是否克隆子节点) 返回值为克隆节点，默认不含子节点
     删除节点
-        .removChild(要删除的节点)   
+        .removChild(要删除的节点)  
 
+文档碎片 
+    document.createDocumentFragment() 创建筐
+
+获取非行内样式
+    getComputedStyle(要获取的元素，伪元素名称)  标准浏览器，返回值为对象 包含所有样式信息
+    currentStyle()      ie低版本
+获取元素尺寸
+    clientWidth/clientHeight 边框以内的区域(内容 + padding)
+元素偏移量
+    offsetLeft/offsetTop
+    offsetWidth/offsetHeight (内容 + padding + 边框)
 */
 </script>
 
