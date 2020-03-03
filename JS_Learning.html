@@ -621,6 +621,20 @@ DOM树
         .nodeName 节点名(元素节点为大写标签名)
         .nodeValue 节点值(元素节点没有值)
 
+对节点操作 CRUD 增删改查
+    创建节点
+        document.createElement(标签类型) 创建元素节点
+        document.createTextNode(文本内容) 创建文本节点
+    插入节点
+        .appendChild(添加的节点)   添加子节点，放在父元素的末尾
+        .insertBefore(插入的元素，在谁之前) 插入到某个节点前
+    替换节点
+        .replaceChild(新节点，旧节点)   替换子节点
+    克隆节点
+        .cloneNode(是否克隆子节点) 返回值为克隆节点，默认不含子节点
+    删除节点
+        .removChild(要删除的节点)   
+
 */
 </script>
 
